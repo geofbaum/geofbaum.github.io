@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Mas et Fils - Leaflet Weather Data Example</title>
+<title>Baum GIS and Weather Analyst - Leaflet Weather Data Example</title>
 <style>
 #map {
 width: 100%;
@@ -76,18 +76,18 @@ height: 95%;
   display: block;
 }
 </style>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<script type= "text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
-<script src="jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="leaflet/leaflet.css" />
+<script type= "text/javascript" src="leaflet/leaflet.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js'></script>
+<script src="src/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 	<div class ="header">
 	<img src="img/test_banner.png" alt="logo" />
-	<h1>Test Example for a Combined meteo and field data site for Mas et Fils</h1>
+	<h1>Test Example utilizing the NWS High-Resolution Rapid Refresh (HRRR) Model </h1>
 	</div>
 	<div class="navbar">
-		<a href="#home">Accueil</a>
+		<a href="index.html">Accueil</a>
 		<a href="fulcrum.html">Fulcrum</a>
 		<div class="dropdown">
 			<button class="dropbtn">Donnés météo 
@@ -101,8 +101,6 @@ height: 95%;
 		</div> 
 	</div>
 	<div id="map"></div>
-	<input id="timeSlider" type="range" min="0" value="0" max="10" step="1">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		var map = L.map('map').setView([45.25, -73.6159], 11);
 		
