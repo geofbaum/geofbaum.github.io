@@ -133,8 +133,6 @@ var radarWMS = L.nonTiledLayer.wms(wmsUrl, {
 
 var proxy = 'proxy.php';
 var testTimeLayer = L.timeDimension.layer.wms(radarWMS, {
-    proxy: proxy,
-    updateTimeDimension: false,
     wmsVersion: '1.1.1'
 });
 testTimeLayer.addTo(map);
