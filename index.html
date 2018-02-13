@@ -78,7 +78,7 @@ height: 95%;
 </style>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script type= "text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js'></script>
 <script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
@@ -87,7 +87,7 @@ height: 95%;
 	<h1>Test Example for a Combined meteo and field data</h1>
 	</div>
 	<div class="navbar">
-		<a href="#home">Accueil</a>
+		<a href="index.html">Accueil</a>
 		<a href="fulcrum.html">Fulcrum</a>
 		<div class="dropdown">
 			<button class="dropbtn">Donnés météo 
@@ -101,25 +101,13 @@ height: 95%;
 		</div> 
 	</div>
 	<div id="map"></div>
-	<input id="timeSlider" type="range" min="0" value="0" max="10" step="1">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		var map = L.map('map').setView([45.25, -73.6159], 11);
-		
-		var trans_can = L.tileLayer.wms('http://cartes.geogratis.gc.ca/wms/roads_fr?', {
-			layers: 'roads.road_segment.large,roads.road_segment.mid,roads.road_segment.small'
-			});
 		
 		var basemaps = {
 			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}')
 		}; 
-
-		
-		var trans_usa = {
-			'roads_usa': L.tileLayer.wms('https://services.nationalmap.gov/arcgis/services/transportation/MapServer/WMSServer?', {
-			layers: '8,10,11'
-			})
-		};	
+	
 			
 		var envcan = {
 			'Température': L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
@@ -157,36 +145,10 @@ height: 95%;
 			})
 		};
 
-		
-		var hrrr = {
-			'Temperature at Ground': L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?', {
-			layers: 'Temperature_height_above_ground',
-			opacity: '0.5',
-			styles: 'boxfill/alg2'
-			}),
-			
-			'Wind Speed and Direction at Surface': L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?', {
-			layers: 'wind @ Specified height level above ground',
-			transparent: true,
-			format: 'image/png',
-			styles: 'fancyvec/rainbow'
-			}),
-			
-			'Precipitation 1hr Acc': L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?', {
-			layers: 'Total_precipitation_surface_1_Hour_Accumulation',
-			opacity: '0.5',
-			styles: 'boxfill/sst_36'
-			})
-
-			};
-			
 			
 		L.control.layers(basemaps, envcan).addTo(map);
 
-		//L.control.layers(basemaps, hrrr).addTo(map);
-		
-
-		basemaps.Google.addTo(map)
+		basemaps.Google.addTo(map);
 		
 		
 	</script>
