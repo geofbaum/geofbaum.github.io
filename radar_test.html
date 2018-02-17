@@ -130,12 +130,16 @@ height: 95%;
 				timeInterval: "PT3H/" + currentTime.toISOString(),
 				period: "PT10M",
 				currentTime: currentTime.getTime(),
-			    //autoPlay: false,
+			},
+			timeDimensionControlOptions: {
+				autoPlay: true,
+				loopButton: true,
+				playReverseButton: true,
 				playerOptions: {
 					buffer: 10,
 					transitionTime: 250,
-					loop: true
-				}
+					loop: true,
+				},
 			},
 			
 		});
