@@ -205,30 +205,30 @@
 		// add Dewpoint Legend
 		var legend2 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
-			var src1 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=Dewpoint_temperature_height_above_ground&PALETTE=alg2"
+			var src2 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=Dewpoint_temperature_height_above_ground&PALETTE=alg2"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
-				'<img src="' + src1 + '" alt="legend">';
+				'<img src="' + src2 + '" alt="legend">';
 			return div;
 		};
 		
 		// add Wind Legend
 		var legend3 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
-			var src1 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=wind @ Specified height level above ground&PALETTE=rainbow"
+			var src3 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=wind @ Specified height level above ground&PALETTE=rainbow"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
-				'<img src="' + src1 + '" alt="legend">';
+				'<img src="' + src3 + '" alt="legend">';
 			return div;
 		};
 		
 		// add Precip Legend
 		var legend4 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
-			var src1 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=Total_precipitation_surface_1_Hour_Accumulation&PALETTE=sst_36"
+			var src4 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=Total_precipitation_surface_1_Hour_Accumulation&PALETTE=sst_36"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
-				'<img src="' + src1 + '" alt="legend">';
+				'<img src="' + src4 + '" alt="legend">';
 			return div;
 		};
 		
