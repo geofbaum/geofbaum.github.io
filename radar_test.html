@@ -142,7 +142,6 @@ height: 95%;
 			
 		});
 		var basemaps = L.tileLayer("https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}").addTo(map);
-		//console.log(map)
 
 		//var wmsUrl = "http://geo.weather.gc.ca/geomet/?"
 		var wmsLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
@@ -160,12 +159,8 @@ height: 95%;
 			proxy: proxy,
 			updateTimeDimension: true,
 		});
-			//proxy: proxy);
-	    //console.log(wmsLayer);
-		
+	
 		tdWmsLayer.addTo(map);
-		
-		//L.control.timeDimension().addTo(map);
 		
 		var testLegend = L.control({
 			position: 'topright'
@@ -179,7 +174,6 @@ height: 95%;
 		};
 		testLegend.addTo(map);
 		
-
 		</script>
     </body>
 </html>
