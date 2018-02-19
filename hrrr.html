@@ -167,7 +167,7 @@
 		var precipLayer = L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?', {
 			layers: 'Total_precipitation_surface_1_Hour_Accumulation',
 			opacity: '0.5',
-			styles: 'boxfill/sst_36'
+			styles: 'boxfill/rainbow'
 			});
 			
 		var proxy = 'proxy.php';
@@ -195,7 +195,7 @@
 		// add Temp Legend
 		var legend1 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
-			var src1 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=Total_precipitation_surface_1_Hour_Accumulation&PALETTE=rainbow"
+			var src1 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=Temperature_height_above_ground&PALETTE=rainbow"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src1 + '" alt="legend">';
@@ -225,7 +225,7 @@
 		// add Precip Legend
 		var legend4 = L.control({position: 'bottomright'});
 		legend4.onAdd = function(map) {
-			var src4 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=Total_precipitation_surface_1_Hour_Accumulation&PALETTE=sst_36"
+			var src4 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=Total_precipitation_surface_1_Hour_Accumulation&PALETTE=rainbow"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src4 + '" alt="legend">';
