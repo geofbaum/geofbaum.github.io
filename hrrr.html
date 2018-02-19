@@ -204,7 +204,7 @@
 		
 		// add Dewpoint Legend
 		var legend2 = L.control({position: 'bottomright'});
-		legend1.onAdd = function(map) {
+		legend2.onAdd = function(map) {
 			var src2 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=Dewpoint_temperature_height_above_ground&PALETTE=alg2"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
@@ -214,7 +214,7 @@
 		
 		// add Wind Legend
 		var legend3 = L.control({position: 'bottomright'});
-		legend1.onAdd = function(map) {
+		legend3.onAdd = function(map) {
 			var src3 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=wind @ Specified height level above ground&PALETTE=rainbow"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
@@ -224,7 +224,7 @@
 		
 		// add Precip Legend
 		var legend4 = L.control({position: 'bottomright'});
-		legend1.onAdd = function(map) {
+		legend4.onAdd = function(map) {
 			var src4 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/TwoD?REQUEST=GetLegendGraphic&LAYER=Total_precipitation_surface_1_Hour_Accumulation&PALETTE=sst_36"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
@@ -235,9 +235,9 @@
 		legend1.addTo(map);
 		
 		var hrrr = {
-			'Temperature at Ground': tdTemp,
+			'Temperature': tdTemp,
 			
-			'Dewpoint temperature at Ground': tdDew,
+			'Dewpoint temperature': tdDew,
 			
 			'Wind Speed and Direction at Surface': tdWind,
 			
@@ -247,13 +247,14 @@
 
 		L.control.layers(basemaps, hrrr).addTo(map);
 		
+		hrrr.Temperature.addTo(map);
 		basemaps.Google.addTo(map);
 		
 		// Remove Legends
 		map.on('overlayremove', function (eventLayer) {
-			if (eventLayer.name === 'Temperature at Ground') {
+			if (eventLayer.name === 'Temperature') {
 				this.removeControl(legend1);
-			} else if (eventLayer.name === 'Dewpoint temperature at Ground') {
+			} else if (eventLayer.name === 'Dewpoint temperature') {
 				this.removeControl(legend2);
 			} else if (eventLayer.name === 'Wind Speed and Direction at Surface') {
 				this.removeControl(legend3);
@@ -263,9 +264,9 @@
 		});
 		map.on('overlayadd', function (eventLayer) {
 		// Add Legends
-			if (eventLayer.name === 'Temperature at Ground') {
+			if (eventLayer.name === 'Temperature') {
 				legend1.addTo(this);
-			} else if (eventLayer.name === 'Dewpoint temperature at Ground') { 
+			} else if (eventLayer.name === 'Dewpoint temperature') { 
 				legend2.addTo(this);
 			} else if (eventLayer.name === 'Wind Speed and Direction at Surface') {
 				legend3.addTo(this);
