@@ -1,0 +1,285 @@
+<html>
+<head>
+<title>Baum GIS and Weather Analyst - Leaflet Weather Data Example</title>
+<style>
+.h1
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+<link rel="stylesheet" href="leaflet/leaflet.css" />
+<link rel="stylesheet" href="src/leaflet.timedimension.control.css" />
+<script type= "text/javascript" src="leaflet/leaflet.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js'></script>
+<script src="src/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div class ="header">
+	<img src="img/test_banner.png" alt="logo" />
+	<h1>Exemple de test utilisant le modèle d'actualisation rapide haute résolution (HRRR) NWS </h1>
+	</div>
+	<div class="navbar">
+		<a href="index.html">Accueil</a>
+		<a href="fulcrum.html">Fulcrum</a>
+		<div class="dropdown">
+			<button class="dropbtn">Donnés météo 
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="envcan.html">Environnement Canada - Modèle HRDPS (2,5km de résolution)</a>
+				<a href="hrrr.html">NWS - Modèle HRRR Model (3,0km de résolution)</a>
+				<a href="radar.html">Réseau de radar météorologique</a>
+			</div>
+		</div> 
+	</div>
+	<div id="map" style="height: 95%; width: 95%;"></div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+	<script type="text/javascript" src="src/iso8601.min.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.util.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.layer.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.layer.wms.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.player.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.control.js"></script>
+	<script type="text/javascript" src="src/L.TileLayer.BetterWMS.js"></script>
+	<script src="src/jquery-1.10.1.min.js"></script>
+	<script src="src/jquery.min.js"></script>
+	<script type="text/javascript">
+		var currentTime = new Date();
+		currentTime.setUTCMinutes(0, 0, 0);
+		var endDate = new Date(currentTime.getTime());
+		L.TimeDimension.Util.addTimeDuration(endDate, "PT18H", true);
+	
+		var map = L.map('map', {
+			center: [45.25, -73.6159],
+			zoom: 9,
+			timeDimension: true,
+			timeDimensionControl: true,
+			timeDimensionOptions: {
+				//times: "PT8H/"+"P2D/"+"PT1H"
+				timeInterval: currentTime.toISOString() + "/PT18H",
+				period: "PT1H",
+				currentTime: currentTime.getTime(),
+			},
+			timeDimensionControlOptions: {
+				styleNS: "leaflet-control-timecontrol",
+				position: "bottomleft",
+				autoPlay: false,
+				loopButton: true,
+				//playReverseButton: true,
+				playerOptions: {
+					buffer: 10,
+					transitionTime: 250,
+					//loop: true,
+				},
+			},
+			
+		});
+		
+		var basemaps = {
+			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}')
+		}; 
+		
+		var temperatureLayer = L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?', {
+			layers: 'Temperature_height_above_ground',
+			transparent: true,
+			opacity: '0.75',
+			format: 'image/png',
+			styles: 'boxfill/ferret'
+			});
+			
+		var dewpointLayer = L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?', {
+			layers: 'Dewpoint_temperature_height_above_ground',
+			opacity: '0.5',
+			styles: 'boxfill/alg2'
+			});
+		
+		var windLayer = L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?', {
+			layers: 'wind @ Specified height level above ground',
+			transparent: true,
+			format: 'image/png',
+			styles: 'fancyvec/rainbow'
+			});
+		
+		var precipLayer = L.tileLayer.wms('http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?', {
+			layers: 'Total_precipitation_surface_1_Hour_Accumulation',
+			opacity: '0.75',
+			format: 'image/png',
+			styles: 'boxfill/ferret'
+			});
+			
+		var proxy = 'proxy.php';
+			
+		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
+		});
+		
+		var tdDew = L.timeDimension.layer.wms(dewpointLayer, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
+		});
+		
+		var tdWind = L.timeDimension.layer.wms(windLayer, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
+		});
+		
+		var tdPrecip = L.timeDimension.layer.wms(precipLayer, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
+		});
+		
+		// add Temp Legend
+		var legend1 = L.control({position: 'bottomright'});
+		legend1.onAdd = function(map) {
+			var src1 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=Temperature_height_above_ground&PALETTE=ferret"
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML +=
+				'<img src="' + src1 + '" alt="legend">';
+			return div;
+		};
+		
+		// add Dewpoint Legend
+		var legend2 = L.control({position: 'bottomright'});
+		legend2.onAdd = function(map) {
+			var src2 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=Dewpoint_temperature_height_above_ground&PALETTE=alg2"
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML +=
+				'<img src="' + src2 + '" alt="legend">';
+			return div;
+		};
+		
+		// add Wind Legend
+		var legend3 = L.control({position: 'bottomright'});
+		legend3.onAdd = function(map) {
+			var src3 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=wind @ Specified height level above ground&PALETTE=rainbow"
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML +=
+				'<img src="' + src3 + '" alt="legend">';
+			return div;
+		};
+		
+		// add Precip Legend
+		var legend4 = L.control({position: 'bottomright'});
+		legend4.onAdd = function(map) {
+			var src4 = "http://thredds-jetstream.unidata.ucar.edu/thredds/wms/grib/NCEP/HRRR/CONUS_2p5km/Best?REQUEST=GetLegendGraphic&LAYER=Total_precipitation_surface_1_Hour_Accumulation&PALETTE=ferret"
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML +=
+				'<img src="' + src4 + '" alt="legend">';
+			return div;
+		};
+		
+		legend1.addTo(map);
+		
+		var hrrr = {
+			'Temperature': tdTemp,
+			
+			'Dewpoint temperature': tdDew,
+			
+			'Wind Speed and Direction at Surface': tdWind,
+			
+			'Precipitation 1hr Acc': tdPrecip
+
+			};
+
+		L.control.layers(basemaps, hrrr).addTo(map);
+		
+		hrrr.Temperature.addTo(map);
+		basemaps.Google.addTo(map);
+		
+		// Remove Legends
+		map.on('overlayremove', function (eventLayer) {
+			if (eventLayer.name === 'Temperature') {
+				this.removeControl(legend1);
+			} else if (eventLayer.name === 'Dewpoint temperature') {
+				this.removeControl(legend2);
+			} else if (eventLayer.name === 'Wind Speed and Direction at Surface') {
+				this.removeControl(legend3);
+			} else {
+				this.removeControl(legend4);
+			}
+		});
+		map.on('overlayadd', function (eventLayer) {
+		// Add Legends
+			if (eventLayer.name === 'Temperature') {
+				legend1.addTo(this);
+			} else if (eventLayer.name === 'Dewpoint temperature') { 
+				legend2.addTo(this);
+			} else if (eventLayer.name === 'Wind Speed and Direction at Surface') {
+				legend3.addTo(this);
+			} else {
+				legend4.addTo(this);
+			}
+		});
+		
+		
+	</script>
+</body>
+</html>
