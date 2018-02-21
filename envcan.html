@@ -210,7 +210,7 @@ height: 95%;
 		// add Temp Legend
 		var legend1 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
-			var src1 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.1.1%26REQUEST=GetLegendGraphic%26STYLE=TEMPERATURE%26LAYER=HRDPS.CONTINENTAL_TT%26format=image/png"
+			var src1 = "http://geo.weather.gc.ca/geomet//?LANG=Fr%26SERVICE=WMS%26VERSION=1.1.1%26REQUEST=GetLegendGraphic%26STYLE=TEMPERATURE%26LAYER=HRDPS.CONTINENTAL_TT%26format=image/png"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src1 + '" alt="legend">';
