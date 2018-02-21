@@ -85,25 +85,25 @@ height: 95%;
 <body>
 	<div class ="header">
 	<img src="img/test_banner.png" alt="logo" />
-	<h1>L'introduction d'un environnement rapide et reproductible pour les producteurs d'obtenir des informations météorologiques.</h1>
+	<h1>Introducing a quick and replicable environment for producers to get weather information.</h1>
 	</div>
 	<div class="navbar">
-		<a href="index1_fr.html">Accueil</a>
-		<a href="fulcrum_fr.html">Fulcrum</a>
+		<a href="index1_en.html">Home</a>
+		<a href="fulcrum_en.html">Fulcrum</a>
 		<div class="dropdown">
-			<button class="dropbtn">Donnés météo 
+			<button class="dropbtn">Weather Data 
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="envcan_fr.html">Environnement Canada - Modèle HRDPS (2,5km de résolution)</a>
-				<a href="hrrr_fr.html">NWS - Modèle HRRR Model (3,0km de résolution)</a>
-				<a href="radar_fr.html">Réseau de radar météorologique</a>
-				<a href="sat_fr.html">GOES East ConUS True Color</a>
+				<a href="envcan_en.html">Environement Canada - HRDPS Model (2.5km resolution)</a>
+				<a href="hrrr_en.html">NWS-NCEP - HRRR Model (3.0km resolution)</a>
+				<a href="radar_en.html">Weather Radar Network Loop</a>
+				<a href="sat_en.html">GOES East ConUS True Color</a>
 			</div>
 		</div> 
 	</div>
-	<!-- div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
-	</div -->	
+	< div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+	</div>	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
 	<script type="text/javascript" src="src/iso8601.min.js"></script>
 	<script type="text/javascript" src="src/leaflet.timedimension.js"></script>
@@ -115,21 +115,76 @@ height: 95%;
 	<script type="text/javascript" src="src/L.TileLayer.BetterWMS.js"></script>
 	<script src="src/jquery-1.10.1.min.js"></script>
 	<script src="src/jquery.min.js"></script>
-	<br>
-	<b>Récolter quelques idées pour d'autres informations météorologiques qui peuvent être facilement fournies via les flux ATOM, WMS, WCS, KML, etc., 
-	   afin de fournir un accès gratuit aux producteurs pour mieux gérer leurs cultures. Ce serait un site simpliste et réplicable qui pourrait être stocké 
-	   sur leurs propres ordinateurs ou serveurs sans avoir à héberger quelque chose ailleurs. Évidemment, l'accès à Internet est toujours nécessaire, mais pas l'hébergement de sites Web.</b>
-	<br>
-	<br>
-	Voici les liens actuels qui sont importants.
-	<br>
-	<br>
-				<a href="envcan_fr.html">Environnement Canada - Modèle HRDPS (2,5km de résolution)</a>
-				<br>
-				<a href="hrrr_fr.html">NWS - Modèle HRRR Model (3,0km de résolution)</a>
-				<br>
-				<a href="radar_fr.html">Réseau de radar météorologique</a>
-				<br>
-	<br>
+
+	<script type="text/javascript">
+		var currentTime = new Date();
+		currentTime.setUTCMinutes(0, 0, 0);
+		var endDate = new Date(currentTime.getTime());
+		L.TimeDimension.Util.addTimeDuration(endDate, "PT18H", true);
+	
+		var map = L.map('map', {
+			center: [45.25, -73.6159],
+			zoom: 9,
+			timeDimension: true,
+			timeDimensionControl: true,
+			timeDimensionOptions: {
+				//times: "PT8H/"+"P2D/"+"PT1H"
+				timeInterval: currentTime.toISOString() + "/PT18H",
+				period: "PT1H",
+				currentTime: currentTime.getTime(),
+			},
+			timeDimensionControlOptions: {
+				styleNS: "leaflet-control-timecontrol",
+				position: "bottomleft",
+				autoPlay: false,
+				loopButton: true,
+				//playReverseButton: true,
+				playerOptions: {
+					buffer: 10,
+					transitionTime: 250,
+					//loop: true,
+				},
+			},
+			
+		});
+		
+		var basemaps = {
+			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}')
+		}; 
+		
+		var goes_est = L.tileLayer.wms('http://realearth.ssec.wisc.edu/cgi-bin/mapserv?', {
+			layers: 'Temperature_height_above_ground',
+			transparent: true,
+			opacity: '0.8',
+			format: 'image/png',
+			styles: 'boxfill/ferret'
+			});
+			
+			
+		var proxy = 'proxy.php';
+			
+		var tdGOES = L.timeDimension.layer.wms(goes_est, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
+		});
+		
+		// add Legend
+		var legend1 = L.control({position: 'bottomright'});
+		legend1.onAdd = function(map) {
+			var src1 = "http://realearth.ssec.wisc.edu/cgi-bin/mapserv?map=G16-ABI-CONUS-TC.map&version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=date_time&format=image/png; mode=24bit&STYLE=default"
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML +=
+				'<img src="' + src1 + '" alt="legend">';
+			return div;
+		};
+		
+	
+		L.control.layers(basemaps, hrrr).addTo(map);
+		
+		hrrr.Temperature.addTo(map);
+		basemaps.Google.addTo(map);
+		
+		
+	</script>
 </body>
 </html>
