@@ -152,7 +152,7 @@ height: 95%;
 			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}')
 		}; 
 		
-		var goes_vis = L.nontiledLayer.wms('https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_imagery_time/MapServer/WMSServer?', {
+		var goes_vis = L.nonTiledLayer.wms('https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_imagery_time/MapServer/WMSServer?', {
 			layers: '25',
 			transparent: true,
 			opacity: '0.8',
