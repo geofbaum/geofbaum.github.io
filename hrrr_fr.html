@@ -2,7 +2,7 @@
 <head>
 <title>Baum GIS and Weather Analyst - Leaflet Weather Data Example</title>
 <style>
-.h1
+
 /* Navbar container */
 .navbar {
   overflow: hidden;
@@ -239,13 +239,13 @@
 		legend1.addTo(map);
 		
 		var hrrr = {
-			'Temperature': tdTemp,
+			'Température': tdTemp,
 			
-			'Dewpoint temperature': tdDew,
+			'Point de rosée': tdDew,
 			
-			'Wind Speed and Direction at Surface': tdWind,
+			'Flèches de vent': tdWind,
 			
-			'Precipitation 1hr Acc': tdPrecip
+			'Quantité de précipitations': tdPrecip
 
 			};
 
@@ -256,11 +256,11 @@
 		
 		// Remove Legends
 		map.on('overlayremove', function (eventLayer) {
-			if (eventLayer.name === 'Temperature') {
+			if (eventLayer.name === 'Température') {
 				this.removeControl(legend1);
-			} else if (eventLayer.name === 'Dewpoint temperature') {
+			} else if (eventLayer.name === 'Point de rosée') {
 				this.removeControl(legend2);
-			} else if (eventLayer.name === 'Wind Speed and Direction at Surface') {
+			} else if (eventLayer.name === 'Flèches de vent') {
 				this.removeControl(legend3);
 			} else {
 				this.removeControl(legend4);
@@ -268,11 +268,11 @@
 		});
 		map.on('overlayadd', function (eventLayer) {
 		// Add Legends
-			if (eventLayer.name === 'Temperature') {
+			if (eventLayer.name === 'Température') {
 				legend1.addTo(this);
-			} else if (eventLayer.name === 'Dewpoint temperature') { 
+			} else if (eventLayer.name === 'Point de rosée') { 
 				legend2.addTo(this);
-			} else if (eventLayer.name === 'Wind Speed and Direction at Surface') {
+			} else if (eventLayer.name === 'Flèches de vent') {
 				legend3.addTo(this);
 			} else {
 				legend4.addTo(this);
