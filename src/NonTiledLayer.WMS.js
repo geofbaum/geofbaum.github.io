@@ -3,7 +3,7 @@
  */
 "use strict";
 
-var L = require('leaflet');
+var L = require(['leaflet']);
 
 L.NonTiledLayer.WMS = L.NonTiledLayer.extend({
 
