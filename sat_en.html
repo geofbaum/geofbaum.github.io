@@ -79,6 +79,7 @@ height: 95%;
 <link rel="stylesheet" href="leaflet/leaflet.css" />
 <link rel="stylesheet" href="src/leaflet.timedimension.control.css" />
 <script type= "text/javascript" src="leaflet/leaflet.js"></script>
+<!-- script type="text/javascript" src="src/require.js" data-main="app"></script -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js'></script>
 <script src="src/jquery-3.3.1.min.js"></script>
 </head>
@@ -113,6 +114,8 @@ height: 95%;
 	<script type="text/javascript" src="src/leaflet.timedimension.player.js"></script>
 	<script type="text/javascript" src="src/leaflet.timedimension.control.js"></script>
 	<script type="text/javascript" src="src/L.TileLayer.BetterWMS.js"></script>
+	<script type="text/javascript" src="src/NonTiledLayer.js"></script>
+	<script type="text/javascript" src="src/NonTiledLayer.WMS.js"></script>
 	<script src="src/jquery-1.10.1.min.js"></script>
 	<script src="src/jquery.min.js"></script>
 
@@ -129,8 +132,8 @@ height: 95%;
 			timeDimensionControl: true,
 			timeDimensionOptions: {
 				//times: "PT8H/"+"P2D/"+"PT1H"
-				timeInterval: currentTime.toISOString() + "/PT18H",
-				period: "PT1H",
+				//timeInterval: currentTime.toISOString() + "/PT18H",
+				//period: "PT1H",
 				currentTime: currentTime.getTime(),
 			},
 			timeDimensionControlOptions: {
@@ -152,17 +155,17 @@ height: 95%;
 			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}')
 		}; 
 		
-		var goes_vis = L.nonTiledLayer.wms('https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_imagery_time/MapServer/WMSServer?', {
-			layers: '25',
+		var goes_lir = L.nonTiledLayer.wms('https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_imagery_time/MapServer/WMSServer', {
+			layers: '5',
 			transparent: true,
-			opacity: '0.8',
+			//opacity: '0.8',
 			format: 'image/png',
 			});
 			
 			
 		var proxy = 'proxy.php';
 			
-		var tdGOES = L.timeDimension.layer.wms(goes_vis, {
+		var tdGOES = L.timeDimension.layer.wms(goes_lir, {
 			wmsVersion: "1.3.0",
 			proxy: proxy,
 		});
@@ -178,7 +181,7 @@ height: 95%;
 		};
 		
 	
-		L.control.layers(basemaps, tdGOES).addTo(map);
+		L.control.layers(basemaps, goes_lir).addTo(map);
 		
 		//hrrr.Temperature.addTo(map);
 		basemaps.Google.addTo(map);
