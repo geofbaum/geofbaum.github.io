@@ -283,7 +283,21 @@ height: 95%;
 			proxy: proxy,
 		});
 		
+		
 		var surf_obs = {
+			'10' = b10,
+			'9' = b9,
+			'8' = b8,
+			'7' = b7,
+			'6' = b6,
+			'5' = b5,
+			'4' = b4,
+			'3' = b3,
+			'2' = b2,
+			'1' = b1
+		};	
+		
+		var tdsurf_obs = {
 			'B10': tdb10,
 			'B9': tdb9,
 			'B8': tdb8,
@@ -298,12 +312,12 @@ height: 95%;
 		
 
 
-		L.control.layers(basemaps, surf_obs).addTo(map);  
+		L.control.layers(basemaps, surf_obs, tdsurf_obs).addTo(map);  
 		
-		surf_obs.B1.addTo(map);
-		surf_obs.B4.addTo(map);
-		surf_obs.B7.addTo(map);
-		surf_obs.B10.addTo(map);
+		//surf_obs.B1.addTo(map);
+		//surf_obs.B4.addTo(map);
+		//surf_obs.B7.addTo(map);
+		//surf_obs.B10.addTo(map);
 		basemaps.Google.addTo(map);		
 		
 		</script>
