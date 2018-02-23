@@ -150,7 +150,7 @@ height: 95%;
 
 		var wmsUrl = "https://nowcoast.noaa.gov/arcgis/services/nowcoast/obs_meteocean_insitu_sfc_time/MapServer/WMSServer?"
 		var b10 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '24',
+			layers: '24,25,26,27,28,29,30,31,32,33',
 			format: 'image/png',
 			transparent: true,
 			opactiy: 0.3,
@@ -158,157 +158,21 @@ height: 95%;
 			attribution: 'NOAA NowCOAST'
 		});
 		
-		var b9 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '25',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
-		
-		var b8 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '26',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
-		
-		var b7 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '27',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
-		
-		var b6 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '28',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
-		
-		var b5 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '29',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
-		
-		var b4 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '30',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
 
-		var b3 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '31',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
-		
-		var b2 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '32',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});		
-		
-		var b1 = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '33',
-			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
-			//crs: L.CRS.EPSG4326,
-			attribution: 'NOAA NowCOAST'
-		});
 		
 		var proxy = './proxy.php';
 		
 		// Create and add a TimeDimension Layer to the map
-		var tdb10 = L.timeDimension.layer.wms(b10, {
+		var Observations = L.timeDimension.layer.wms(b10, {
 			wmsVersion: "1.3.0",
 			proxy: proxy,
 		});
-		var tdb9 = L.timeDimension.layer.wms(b9, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});
-		var tdb8 = L.timeDimension.layer.wms(b8, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});		
-		var tdb7 = L.timeDimension.layer.wms(b7, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});
-		var tdb6 = L.timeDimension.layer.wms(b6, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});
-		var tdb5 = L.timeDimension.layer.wms(b5, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});		
-		var tdb4 = L.timeDimension.layer.wms(b4, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});
-		var tdb3 = L.timeDimension.layer.wms(b3, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});
-		var tdb2 = L.timeDimension.layer.wms(b2, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});		
-		var tdb1 = L.timeDimension.layer.wms(b1, {
-			wmsVersion: "1.3.0",
-			proxy: proxy,
-		});
+
 	
-
-		// add B10 Legend
-		var legend1 = L.control({position: 'bottomright'});
-		legend1.onAdd = function(map) {
-			var src1 = "https://nowcoast.noaa.gov/arcgis/services/nowcoast/obs_meteocean_insitu_sfc_time/MapServer/WmsServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=24"
-			var div = L.DomUtil.create('div', 'info legend');
-			div.innerHTML +=
-				'<img src="' + src1 + '" alt="legend">';
-			return div;
-		};
 		
 
-		var surf_obs = {
-			'B10': tdb10,
-			'B9': tdb9,
-			'B8': tdb8,
-			'B7': tdb7,
-			'B6': tdb6,
-			'B5': tdb5,
-			'B4': tdb4,
-			'B3': tdb3,
-			'B2': tdb2,
-			'B1': tdb1
-		};
-		
-		L.control.layers(surf_obs).addTo(map);  //basemaps,
+
+		L.control.layers(Observations).addTo(map);  //basemaps,
 		
 		//goes.B1.addTo(map);
 		basemaps.Google.addTo(map);		
