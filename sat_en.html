@@ -146,7 +146,7 @@ height: 95%;
 		var basemaps = L.tileLayer("https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}").addTo(map);
 
 		var wmsUrl = "https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_imagery_time/MapServer/WMSServer?"
-		var wmsLayer = L.nonTiledLayer.wms(wmsUrl, {
+		var swir = L.nonTiledLayer.wms(wmsUrl, {
 			layers: '13',
 			format: 'image/png',
 			transparent: true,
@@ -154,14 +154,64 @@ height: 95%;
 			//crs: L.CRS.EPSG4326,
 			attribution: 'NOAA NowCOAST'
 		});
+		
+		var lwir = L.nonTiledLayer.wms(wmsUrl, {
+			layers: '17',
+			format: 'image/png',
+			transparent: true,
+			opactiy: 0.3,
+			//crs: L.CRS.EPSG4326,
+			attribution: 'NOAA NowCOAST'
+		});
+		
+		var wv = L.nonTiledLayer.wms(wmsUrl, {
+			layers: '21',
+			format: 'image/png',
+			transparent: true,
+			opactiy: 0.3,
+			//crs: L.CRS.EPSG4326,
+			attribution: 'NOAA NowCOAST'
+		});
+		
+		var vis = L.nonTiledLayer.wms(wmsUrl, {
+			layers: '25',
+			format: 'image/png',
+			transparent: true,
+			opactiy: 0.3,
+			//crs: L.CRS.EPSG4326,
+			attribution: 'NOAA NowCOAST'
+		});
+		
 		var proxy = './proxy.php'
 		// Create and add a TimeDimension Layer to the map
-		var tdWmsLayer = L.timeDimension.layer.wms(wmsLayer, {
+		var tdswir = L.timeDimension.layer.wms(swir, {
 			wmsVersion: "1.3.0",
 			proxy: proxy,
-			updateTimeDimension: true,
+		});
+		var tdlwir = L.timeDimension.layer.wms(lwir, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
+		});
+		var tdwv = L.timeDimension.layer.wms(wv, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
+		});
+		var tdvis = L.timeDimension.layer.wms(vis, {
+			wmsVersion: "1.3.0",
+			proxy: proxy,
 		});
 	
+		var goes_east = {
+			'Shortwave Infrared' : tdswir,
+			'Longwave Infrared' : tdlwir,
+			'Water Vapor' : tdwv,
+			'Visible' : tdvis,
+		};
+		
+		L.control.layers(basemaps, goes_east).addTo(map);
+		
+		goes_east.Water Vapor.addTo(map);
+		basemaps.Google.addTo(map);
 		tdWmsLayer.addTo(map);
 		
 		//var testLegend = L.control({
