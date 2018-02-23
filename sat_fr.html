@@ -251,7 +251,7 @@ height: 95%;
 		var goes = {
 			'Infrarouge à ondes courtes': tdswir,
 			'Infrarouge à ondes longes': tdlwir,
-			'Vapeur d\'eau': tdwv,
+			"Vapeur d'eau": tdwv,
 			'Visible': tdvis
 		};
 		
@@ -266,7 +266,7 @@ height: 95%;
 				this.removeControl(legend1);
 			} else if (eventLayer.name === 'Infrarouge à ondes longes') {
 				this.removeControl(legend2);
-			} else if (eventLayer.name === 'Vapeur d\'eau') {
+			} else if (eventLayer.name === "Vapeur d'eau") {
 				this.removeControl(legend3);
 			} else {
 				this.removeControl(legend4);
@@ -278,7 +278,7 @@ height: 95%;
 				legend1.addTo(this);
 			} else if (eventLayer.name === 'Infrarouge à ondes longes') { 
 				legend2.addTo(this);
-			} else if (eventLayer.name === 'Vapeur d\'eau') {
+			} else if (eventLayer.name === "Vapeur d'eau") {
 				legend3.addTo(this);
 			} else {
 				legend4.addTo(this);
