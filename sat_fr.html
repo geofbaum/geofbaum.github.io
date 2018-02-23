@@ -249,9 +249,9 @@ height: 95%;
 		//legend4.addTo(map);
 		
 		var goes = {
-			'Shortwave Infrared': tdswir,
-			'Longwave Infrared': tdlwir,
-			'Water_Vapor': tdwv,
+			'Infrarouge à ondes courtes': tdswir,
+			'Infrarouge à ondes longes': tdlwir,
+			'Vapeur d'''eau': tdwv,
 			'Visible': tdvis
 		};
 		
@@ -262,11 +262,11 @@ height: 95%;
 		
 		// Remove Legends
 		map.on('overlayremove', function (eventLayer) {
-			if (eventLayer.name === 'Shortwave Infrared') {
+			if (eventLayer.name === 'Infrarouge à ondes courtes') {
 				this.removeControl(legend1);
-			} else if (eventLayer.name === 'Longwave Infrared') {
+			} else if (eventLayer.name === 'Infrarouge à ondes longes') {
 				this.removeControl(legend2);
-			} else if (eventLayer.name === 'Water_Vapor') {
+			} else if (eventLayer.name === 'Vapeur d'''eau') {
 				this.removeControl(legend3);
 			} else {
 				this.removeControl(legend4);
@@ -274,11 +274,11 @@ height: 95%;
 		});
 		map.on('overlayadd', function (eventLayer) {
 		// Add Legends
-			if (eventLayer.name === 'Shortwave Infrared') {
+			if (eventLayer.name === 'Infrarouge à ondes courtes') {
 				legend1.addTo(this);
-			} else if (eventLayer.name === 'Longwave Infrared') { 
+			} else if (eventLayer.name === 'Infrarouge à ondes longes') { 
 				legend2.addTo(this);
-			} else if (eventLayer.name === 'Water_Vapor') {
+			} else if (eventLayer.name === 'Vapeur d'''eau') {
 				legend3.addTo(this);
 			} else {
 				legend4.addTo(this);
