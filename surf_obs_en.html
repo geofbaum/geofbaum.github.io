@@ -129,7 +129,7 @@ height: 95%;
 			timeDimensionControl: true,
 			timeDimensionOptions: {
 				timeInterval: "PT4H/" + currentTime.toISOString(),
-				period: "PT1H",
+				period: "PT1H/",
 				currentTime: currentTime.getTime(),
 			},
 			timeDimensionControlOptions: {
@@ -206,8 +206,8 @@ height: 95%;
 		var b4 = L.nonTiledLayer.wms(wmsUrl, {
 			layers: '30',
 			format: 'image/png',
-			transparent: true,
-			opactiy: 0.3,
+			//transparent: true,
+			//opactiy: 0.3,
 			//crs: L.CRS.EPSG4326,
 			attribution: 'NOAA NowCOAST'
 		});
