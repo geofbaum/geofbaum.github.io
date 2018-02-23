@@ -299,26 +299,26 @@ height: 95%;
 		
 		var tdsurf_obs = {
 			'B10': tdb10,
-			'B9': tdb9,
-			'B8': tdb8,
+			//'B9': tdb9,
+			//'B8': tdb8,
 			'B7': tdb7,
-			'B6': tdb6,
-			'B5': tdb5,
+			//'B6': tdb6,
+			//'B5': tdb5,
 			'B4': tdb4,
-			'B3': tdb3,
-			'B2': tdb2,
+			//'B3': tdb3,
+			//'B2': tdb2,
 			'B1': tdb1
 		};
 		
 
 
-		L.control.layers(tdsurf_obs).addTo(map);  
+		L.control.layers(basemaps,tdsurf_obs).addTo(map);  
 		
 		//surf_obs.B1.addTo(map);
 		//surf_obs.B4.addTo(map);
 		//surf_obs.B7.addTo(map);
 		//surf_obs.B10.addTo(map);
-		//basemaps.Google.addTo(map);		
+		basemaps.Google.addTo(map);		
 		
 		</script>
     </body>
