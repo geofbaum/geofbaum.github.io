@@ -128,7 +128,7 @@ height: 95%;
 			timeDimensionControl: true,
 			timeDimensionOptions: {
 				timeInterval: "PT3H/" + currentTime.toISOString(),
-				period: "PT10M",
+				period: "PT30M",
 				currentTime: currentTime.getTime(),
 			},
 			timeDimensionControlOptions: {
@@ -147,7 +147,7 @@ height: 95%;
 
 		var wmsUrl = "https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_imagery_time/MapServer/WMSServer?"
 		var wmsLayer = L.nonTiledLayer.wms(wmsUrl, {
-			layers: '17',
+			layers: '13',
 			format: 'image/png',
 			transparent: true,
 			opactiy: 0.3,
