@@ -146,8 +146,8 @@ height: 95%;
 		var basemaps = L.tileLayer("https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}").addTo(map);
 
 		var wmsUrl = "https://nowcoast.noaa.gov/arcgis/services/nowcoast/sat_meteo_imagery_time/MapServer/WMSServer?"
-		var wmsLayer = L.tileLayer.wms(wmsUrl, {
-			layers: '10',
+		var wmsLayer = L.nonTiledLayer.wms(wmsUrl, {
+			layers: '9',
 			format: 'image/png',
 			transparent: true,
 			opactiy: 0.3,
