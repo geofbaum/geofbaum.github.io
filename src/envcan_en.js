@@ -39,7 +39,7 @@
 
 		var windLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
 			layers: 'HRDPS.CONTINENTAL_UU',
-			opacity: '0.5',
+			opacity: '0.9',
 			transparent: true,
 			format: 'image/png',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
