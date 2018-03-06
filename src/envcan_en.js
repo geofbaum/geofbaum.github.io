@@ -47,7 +47,7 @@
 			
 		var precipLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
 			layers: 'HRDPS.CONTINENTAL_PR',
-			opacity: '0.8',
+			opacity: '0.6',
 			transparent: true,
 			format: 'image/png'
 			});
