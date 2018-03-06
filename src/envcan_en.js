@@ -87,6 +87,12 @@
 			proxy: proxy,
 		});
 		
+		// set Zorder of layers to allow the wind arrows to be displayed over top of the other layers
+		tdTemp.setZIndex(1);
+		tdDew.setZIndex(2);
+		tdWind.setZIndex(5);
+		tdPrecip.setZIndex(3);
+		
 		// add Temp Legend
 		var legend1 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
