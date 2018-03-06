@@ -9,7 +9,6 @@
 			timeDimension: true,
 			timeDimensionControl: true,
 			timeDimensionOptions: {
-				//times: "PT8H/"+"P2D/"+"PT1H"
 				timeInterval: currentTime.toISOString() + "/P2D",
 				period: "PT1H",
 				currentTime: currentTime.getTime(),
@@ -19,11 +18,9 @@
 				position: "bottomleft",
 				autoPlay: false,
 				loopButton: true,
-				//playReverseButton: true,
 				playerOptions: {
 					buffer: 10,
 					transitionTime: 250,
-					//loop: true,
 				},
 			},
 			
