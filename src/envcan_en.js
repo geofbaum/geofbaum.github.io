@@ -143,7 +143,9 @@
 			'Cumulative Precipitation (mm)': tdPrecip,
 		};
 			
-		L.control.layers(basemaps, envcan).addTo(map);
+		L.control.layers(basemaps, envcan, {
+			autoZIndex = false,
+		}).addTo(map);
 		
 		envcan.Temperature.addTo(map);
 		basemaps.Google.addTo(map);
