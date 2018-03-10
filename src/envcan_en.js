@@ -22,7 +22,7 @@
 					buffer: 10,
 					transitionTime: 250,
 				},
-				timeZones: ['UTC', 'Local'],
+				timeZones: ['Local'],
 			},
 			
 		});
