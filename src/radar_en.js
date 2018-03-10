@@ -41,7 +41,7 @@
 			wmsVersion: "1.1.1",
 			proxy: proxy,
 			updateTimeDimension: true,
-		}).getAvailableTimes();
+		});
 	
 		tdWmsLayer.addTo(map);
 		
