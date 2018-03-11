@@ -8,11 +8,11 @@
 			zoom: 9,
 			timeDimension: true,
 			timeDimensionControl: true,
-			timeDimensionOptions: {
+		/*	timeDimensionOptions: {
 				timeInterval: currentTime.toISOString() + "/P2D",
 				period: "PT1H",
 				currentTime: currentTime.getTime(),
-			},
+			}, */
 			timeDimensionControlOptions: {
 				styleNS: "leaflet-control-timecontrol",
 				position: "bottomleft",
@@ -71,7 +71,7 @@
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			wmsVersion: "1.1.1",
 			proxy: proxy,
-			//updateTimeDimension: true,
+			updateTimeDimension: true,
 		});
 		
 		var tdDew = L.timeDimension.layer.wms(dewpointLayer, {
