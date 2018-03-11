@@ -19,12 +19,11 @@
 				position: "bottomleft",
 				autoPlay: false,
 				loopButton: true,
-				//playReverseButton: true,
 				playerOptions: {
 					buffer: 10,
 					transitionTime: 250,
-					//loop: true,
 				},
+				timeZones: ['Local'],				
 			},
 			
 		});

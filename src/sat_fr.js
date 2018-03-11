@@ -18,8 +18,8 @@
 				playerOptions: {
 					buffer: 10,
 					transitionTime: 250,
-					//loop: true,
 				},
+				timeZones: ['Local'],				
 			},
 			
 		});
