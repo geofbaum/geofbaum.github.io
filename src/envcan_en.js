@@ -77,19 +77,16 @@
 		var tdDew = L.timeDimension.layer.wms(dewpointLayer, {
 			wmsVersion: "1.1.1",
 			proxy: proxy,
-			updateTimeDimension: true,
 		});
 		
 		var tdWind = L.timeDimension.layer.wms(windLayer, {
 			wmsVersion: "1.1.1",
 			proxy: proxy,
-			updateTimeDimension: true,
 		});
 		
 		var tdPrecip = L.timeDimension.layer.wms(precipLayer, {
 			wmsVersion: "1.1.1",
 			proxy: proxy,
-			updateTimeDimension: true,
 		});
 		
 		
