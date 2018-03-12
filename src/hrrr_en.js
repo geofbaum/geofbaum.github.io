@@ -59,12 +59,42 @@
 			format: 'image/png',
 			styles: 'boxfill/ferret'
 			});
+
+		var markers = [{
+			name: 'Mas',
+			position: [45.177046, -73.614294],
+			//platformName: 'Buoy at Sa Dragonera',
+			//platform: 18,
+			//instrument: 68,
+			//variable: 17
+		}, {
+			name: 'Leclair',
+			position: [45.149207, -73.622507]
+		}, {
+			name: 'JML',
+			position: [45.197038, -73.639380],
+			//platformName: 'Buoy at Palma Bay',
+			//platform: 143,
+			//instrument: 296,
+			//variable: 90047
+		}, {
+			name: 'Village',
+			position: [45.236798, -73.574530]
+		}, {
+			name: 'Hamelin',
+			position: [45.230818, -73.55349],
+			//platform: 146,
+			//instrument: 314,
+			//variable: 90047
+		}];				
 			
 		var proxy = 'proxy.php';
 			
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			wmsVersion: "1.3.0",
 			proxy: proxy,
+			markers: markers,
+			name: '2-M Height Temperature',
 		});
 		
 		var tdDew = L.timeDimension.layer.wms(dewpointLayer, {
