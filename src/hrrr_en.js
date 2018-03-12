@@ -37,6 +37,9 @@
 			transparent: true,
 			opacity: '0.75',
 			format: 'image/png',
+			abovemaxcolor: "extend",
+			belowmincolor: "extend",
+			numcolorbands: 100,
 			styles: 'boxfill/ferret'
 			});
 			
