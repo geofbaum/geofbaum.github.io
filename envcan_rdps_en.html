@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Baum GIS and Weather Data Analyst - Leaflet Weather Data Example</title>
+<style>
+#map {
+width: 90%;
+height: 85%;
+}
+.chart, .chart-wrapper{
+    width: 100%;
+    margin-bottom: 20px;
+}
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+<link rel="stylesheet" href="leaflet/leaflet.css" />
+<link rel="stylesheet" href="src/leaflet.timedimension.control.css" />
+<script type= "text/javascript" src="leaflet/leaflet.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js'></script>
+<script src="src/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div class ="header">
+	<img src="img/test_banner.png" alt="logo" />
+	<h1>Example utilizing Environment Canada's High Resolution Deterministic Prediction System (HRDPS) model</h1>
+	</div>
+	<div class="navbar">
+		<a href="index1_en.html">Home</a>
+		<a href="fulcrum_en.html">Fulcrum</a>
+		<div class="dropdown">
+			<button class="dropbtn">Weather Data
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="envcan_en.html">Environement Canada - HRDPS Model (2.5km resolution)</a>
+				<a href="envcan_rdps_en.html">Environment Canada - RDPS Model (10km resolution)</a>
+				<a href="envcan_reps_en.html">Environment Canada -REPS Model [Ensemble] (10km resolution)</a>
+				<a href="hrrr_en.html">NWS-NCEP - HRRR Model (3.0km resolution)</a>
+				<a href="radar_en.html">Weather Radar Network Loop</a>
+				<a href="sat_en.html">GOES East Satellite Imagery</a>
+				<a href="surf_obs_en.html">Surface Observations</a>
+			</div>
+		</div> 
+	</div>
+	<div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+	</div>	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+	<script type="text/javascript" src="src/iso8601.min.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.util.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.layer.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.layer.wms.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.player.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.control.js"></script>
+	<script type="text/javascript" src="src/L.TileLayer.BetterWMS.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.circlelabelmarker.js"></script>
+	<script type="text/javascript" src="src/leaflet.timedimension.layer.wms.timeseries.js"></script>
+	<script src="src/jquery-1.10.1.min.js"></script>
+	<script src="src/jquery.min.js"></script>
+	<script type="text/javascript" src="src/envcan_rdps_en.js"></script>
+</body>
+</html>
