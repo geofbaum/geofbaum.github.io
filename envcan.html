@@ -132,7 +132,7 @@ height: 95%;
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 
-		var windLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
+		var windLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E', {
 			layers: 'HRDPS.CONTINENTAL_UU',
 			//opacity: '0.9',
 			transparent: true,
@@ -176,7 +176,7 @@ height: 95%;
 			name: 'Hamelin',
 			position: [45.230818, -73.55349],
 		}];
-		/*
+		/* */
 				// add Temp Legend
 		var legend1 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
@@ -218,7 +218,7 @@ height: 95%;
 			return div;
 		};
 		
-		legend1.addTo(map); */
+		legend1.addTo(map); 
 		
 		var envcan = {
 			'Temperature': temperatureLayer,
