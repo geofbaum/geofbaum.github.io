@@ -32,13 +32,13 @@
 		}; 
 
 		
-		var temperatureLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&', {
+		var temperatureLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL_TT',
 			opacity: '0.5',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 
-		var windLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&', {
+		var windLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL_UU',
 			//opacity: '0.9',
 			transparent: true,
@@ -46,21 +46,21 @@
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 			
-		var precipLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&', {
+		var precipLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL_PR',
 			opacity: '0.6',
 			transparent: true,
 			format: 'image/png'
 			});
 			
-		var dewpointLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&', {
+		var dewpointLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL_TD',
 			opacity: '0.75',
 			transparent: true,
 			format: 'image/png'
 			});
 			
-		var radarLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&', {
+		var radarLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'RADAR_RDBS',
 			transparent: true,
 			format: 'image/png'
