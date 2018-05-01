@@ -54,7 +54,7 @@
 			});
 			
 		var dewpointLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
-			layers: 'HRDPS.CONTINENTAL_ES',
+			layers: 'HRDPS.CONTINENTAL_TD',
 			opacity: '0.75',
 			transparent: true,
 			format: 'image/png'
@@ -94,7 +94,7 @@
 			//enableNewMarkers: true
 		}); */
 			
-		var tdTemp = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
+		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			//wmsVersion: "1.1.1",
 			proxy: proxy,
 			markers: markers,
@@ -152,7 +152,7 @@
 		// add Precip Legend
 		var legend4 = L.control({position: 'bottomright'});
 		legend4.onAdd = function(map) {
-			var src4 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.1.1%26REQUEST=GetLegendGraphic%26STYLE=PRECIPMM%26LAYER=HRDPS.CONTINENTAL_PR%26format=image/png"
+			var src4 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=HRDPS.CONTINENTAL_PR&format=image/png&STYLE=PRECIPMM"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src4 + '" alt="legend">';
