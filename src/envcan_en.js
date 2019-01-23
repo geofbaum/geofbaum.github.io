@@ -3,7 +3,7 @@
 		var endDate = new Date(currentTime.getTime());
 		var hour = new Date(currentTime.getHours());
 		if (hour > 6 ) {
-		    currentTime.setHours(6); }
+		    var startTime new Date(currentTime.setHours(6)); }
 //L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true);
 	
 		var map = L.map('map', {
@@ -14,7 +14,7 @@
 			timeDimensionOptions: {
 				//timeInterval: currentTime.toISOString() + "/P2D",
 				period: "PT1H",
-				currentTime: currentTime //.getTime(),
+				currentTime: startTime //.getTime(),
 			}, 
 			timeDimensionControlOptions: {
 				styleNS: "leaflet-control-timecontrol",
