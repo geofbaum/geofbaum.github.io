@@ -2,9 +2,9 @@
 		currentTime.setUTCMinutes(0, 0, 0);
 		var endDate = new Date(currentTime.getTime());
 		var hour = new Date(currentTime.getHours());
-		if (hour > 6 ) {
-		    var startTime new Date(currentTime.setHours(6)); }
-//L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true);
+		//if (hour > 6 ) {
+		    //var startTime new Date(currentTime.setHours(6)); }
+		L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true);
 	
 		var map = L.map('map', {
 			center: [45.25, -73.6159],
