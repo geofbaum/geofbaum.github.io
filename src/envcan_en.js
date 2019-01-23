@@ -88,21 +88,24 @@
 
 	    var proxy = 'proxy.php';
 		
-		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
+		/*var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
 			proxy: proxy,
 			updateTimeDimension: true,
 			updateTimeDimensionMode: "replace",
 			requestTimeFromCapabilities: true,
-			markers: markers,
+			//markers: markers,
 			name: "Surface Temperature",
 			units: "\xBA C"//,
 			//enableNewMarkers: true
-		}); 
+		}); */
 			
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			//wmsVersion: "1.3.0",
-			//proxy: proxy,
-			markers: markers,
+			proxy: proxy,
+			updateTimeDimension: true,
+			updateTimeDimensionMode: "replace",
+			requestTimeFromCapabilities: true,
+			//markers: markers,
 			name: "Surface Temperature",
 			//units: "\xBA C",			
 		});
