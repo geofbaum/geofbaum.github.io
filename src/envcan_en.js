@@ -14,7 +14,7 @@
 			timeDimensionOptions: {
 				//timeInterval: currentTime.toISOString() + "/P2D",
 				period: "PT1H",
-				currentTime: startTime //.getTime(),
+				//currentTime: startTime //.getTime(),
 			}, 
 			timeDimensionControlOptions: {
 				styleNS: "leaflet-control-timecontrol",
