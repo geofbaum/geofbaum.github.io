@@ -34,7 +34,7 @@
 		
 		var temperatureLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL_TT',
-			opacity: '0.5',
+			opacity: '0.75',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 
