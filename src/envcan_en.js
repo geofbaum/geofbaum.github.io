@@ -86,10 +86,10 @@
 			position: [45.230818, -73.55349],
 		}];	
 
-	    //var proxy = 'proxy.php';
+	    var proxy = 'proxy.php';
 		
 		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
-			//proxy: proxy,
+			proxy: proxy,
 			updateTimeDimension: true,
 			updateTimeDimensionMode: "replace",
 			//requestTimeFromCapabilities: true,
