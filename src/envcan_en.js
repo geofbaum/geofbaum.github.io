@@ -2,6 +2,20 @@
 		currentTime.setUTCMinutes(0, 0, 0);
 		var endDate = new Date(currentTime.getTime());
 		var hour = new Date(currentTime.getHours());
+		var startTime = new Date();
+		if (hour > 6 && hour < 18) {
+			startTime.setUTCHours(6);
+			window.alert("6Z Model Run");
+		} else if (hour > 18 && hour < 24) {
+			startTime.setUTCHours(12);
+			window.alert("12Z Model Run");
+		} else if (hour < 6) {
+			startTime.setUTCHours(18);
+			window.alert("18Z Model Run");
+		} else {
+			startTime.setUTCHours(0);
+			window.alert("0Z Model Run");
+		}
 		L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true);
 	
 		var map = L.map('map', {
@@ -11,8 +25,8 @@
 			timeDimensionControl: true,
 			timeDimensionOptions: {
 				//timeInterval: currentTime.toISOString() + "/P1D",
-				//period: "PT1H",
-				//currentTime: startTime //.getTime(),
+				period: "PT1H",
+				currentTime: startTime //.getTime(),
 			}, 
 			timeDimensionControlOptions: {
 				styleNS: "leaflet-control-timecontrol",
