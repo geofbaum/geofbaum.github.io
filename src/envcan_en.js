@@ -89,7 +89,7 @@
 		
 		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
 			//proxy: proxy,
-			updateTimeDimension: true,
+			//updateTimeDimension: true,
 			//updateTimeDimensionMode: "replace",
 			//requestTimeFromCapabilities: true,
 			markers: markers,
