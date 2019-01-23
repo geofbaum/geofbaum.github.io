@@ -85,7 +85,7 @@
 			position: [45.230818, -73.55349],
 		}];	
 
-	    var proxy = 'proxy.php';
+	    //var proxy = 'proxy.php';
 		
 		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
 			//proxy: proxy,
@@ -100,7 +100,7 @@
 			
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			wmsVersion: "1.3.0",
-			proxy: proxy,
+			//proxy: proxy,
 			markers: markers,
 			name: "Surface Temperature",
 			//units: "\xBA C",			
@@ -108,17 +108,17 @@
 		
 		var tdDew = L.timeDimension.layer.wms(dewpointLayer, {
 			wmsVersion: "1.3.0",
-			proxy: proxy,
+			//proxy: proxy,
 		});
 		
 		var tdWind = L.timeDimension.layer.wms(windLayer, {
 			wmsVersion: "1.3.0",
-			proxy: proxy,
+			//proxy: proxy,
 		});
 		
 		var tdPrecip = L.timeDimension.layer.wms(precipLayer, {
 			wmsVersion: "1.3.0",
-			proxy: proxy,
+			//proxy: proxy,
 		});
 		
 		
