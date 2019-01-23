@@ -2,8 +2,6 @@
 		currentTime.setUTCMinutes(0, 0, 0);
 		var endDate = new Date(currentTime.getTime());
 		var hour = new Date(currentTime.getHours());
-		//if (hour > 6 ) {
-		    //var startTime new Date(currentTime.setHours(6)); }
 		L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true);
 	
 		var map = L.map('map', {
@@ -12,7 +10,7 @@
 			timeDimension: true,
 			timeDimensionControl: true,
 			timeDimensionOptions: {
-				//timeInterval: currentTime.toISOString() + "/P2D",
+				timeInterval: currentTime.toISOString() + "/P1D",
 				period: "PT1H",
 				//currentTime: startTime //.getTime(),
 			}, 
