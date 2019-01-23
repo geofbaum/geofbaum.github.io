@@ -9,8 +9,8 @@
 			timeDimension: true,
 			timeDimensionControl: true,
 			timeDimensionOptions: {
-				timeInterval: currentTime.toISOString() + "/P1D",
-				period: "PT1H",
+				//timeInterval: currentTime.toISOString() + "/P1D",
+				//period: "PT1H",
 				currentTime: currentTime.getTime(),
 			}, 
 			timeDimensionControlOptions: {
