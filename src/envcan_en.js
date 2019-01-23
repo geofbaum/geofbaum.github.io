@@ -1,8 +1,9 @@
 		var currentTime = new Date();
 		currentTime.setUTCMinutes(0, 0, 0);
 		var endDate = new Date(currentTime.getTime());
-		var hour = new Date(currentTime.getTime().getUTCHours());
-		window.alert(hour);
+		var hour = new Date(currentTime.getTime());
+		hour = hour.getUTCHours();
+		window.alert(hour.getUTCHours());
 		var startTime = new Date();
 		// Check the time and alert us to what Model run is likely showing.
 		if (hour > 6 && hour < 18) {
