@@ -3,6 +3,7 @@
 		var endDate = new Date(currentTime.getTime());
 		var hour = new Date(currentTime.getHours());
 		var startTime = new Date();
+		// Check the time and alert us to what Model run is likely showing.
 		if (hour > 6 && hour < 18) {
 			startTime.setUTCHours(6);
 			window.alert("6Z Model Run");
