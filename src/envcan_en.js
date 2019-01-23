@@ -8,13 +8,13 @@
 		// Check the time and alert us to what Model run is likely showing.
 		if (hour > 6 && hour < 18) {
 			startTime.setUTCHours(6);
-			window.alert("6Z Model Run");
+			window.alert(startTime, "6Z Model Run");
 		} else if (hour > 18 && hour < 24) {
 			startTime.setUTCHours(12);
-			window.alert("12Z Model Run");
+			window.alert(startTime, "12Z Model Run");
 		} else if (hour < 6) {
 			startTime.setUTCHours(18);
-			window.alert("18Z Model Run");
+			window.alert(startTime, "18Z Model Run");
 		} else {
 			startTime.setUTCHours(0);
 			window.alert("0Z Model Run");
@@ -27,7 +27,7 @@
 			timeDimension: true,
 			timeDimensionControl: true,
 			timeDimensionOptions: {
-				//timeInterval: currentTime.toISOString() + "/P1D",
+				timeInterval: startTime.toISOString() + "/P1D",
 				period: "PT1H",
 				currentTime: startTime //.getTime(),
 			}, 
