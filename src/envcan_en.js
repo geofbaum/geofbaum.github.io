@@ -9,7 +9,7 @@
 			timeDimension: true,
 			timeDimensionControl: true,
 			timeDimensionOptions: {
-				timeInterval: currentTime.toISOString() + "/P2D",
+				//timeInterval: currentTime.toISOString() + "/P2D",
 				period: "PT1H",
 				currentTime: currentTime.getTime(),
 			}, 
@@ -89,8 +89,8 @@
 		
 		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
 			//proxy: proxy,
-			//updateTimeDimension: true,
-			//updateTimeDimensionMode: "replace",
+			updateTimeDimension: true,
+			updateTimeDimensionMode: "replace",
 			//requestTimeFromCapabilities: true,
 			markers: markers,
 			name: "Surface Temperature",
