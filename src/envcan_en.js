@@ -69,7 +69,7 @@
 			format: 'image/png'
 			});
 			
-		var markers = [{
+		/*var markers = [{
 			name: 'Mas',
 			position: [45.177046, -73.614294],
 		}, {
@@ -84,7 +84,7 @@
 		}, {
 			name: 'Hamelin',
 			position: [45.230818, -73.55349],
-		}];	
+		}];	*/
 
 	    var proxy = 'proxy.php';
 		
