@@ -17,3 +17,4 @@ if (strpos($url, "GetCapabilities") >= 0){
     header('HTTP/1.0 400 Bad Request');
     echo 'Request not valid';
 }
+?>
