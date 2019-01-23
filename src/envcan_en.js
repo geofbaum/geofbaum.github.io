@@ -92,7 +92,7 @@
 			proxy: proxy,
 			updateTimeDimension: true,
 			updateTimeDimensionMode: "replace",
-			//requestTimeFromCapabilities: true,
+			requestTimeFromCapabilities: true,
 			markers: markers,
 			name: "Surface Temperature",
 			units: "\xBA C"//,
