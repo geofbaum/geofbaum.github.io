@@ -88,12 +88,13 @@
 	    var proxy = 'proxy.php';
 		
 		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
+			//proxy: proxy,
 			updateTimeDimension: true,
 			updateTimeDimensionMode: "replace",
-			requestTimeFromCapabilities: true
+			requestTimeFromCapabilities: true,
 			markers: markers,
 			name: "Surface Temperature",
-			units: "\xBA C",
+			units: "\xBA C"//,
 			//enableNewMarkers: true
 		}); 
 			
