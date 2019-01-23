@@ -50,14 +50,16 @@
 			layers: 'HRDPS.CONTINENTAL_PR',
 			opacity: '0.6',
 			transparent: true,
-			format: 'image/png'
+			format: 'image/png',
+			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 			
 		var dewpointLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL_TD',
 			opacity: '0.75',
 			transparent: true,
-			format: 'image/png'
+			format: 'image/png',
+			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 			
 		var radarLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
