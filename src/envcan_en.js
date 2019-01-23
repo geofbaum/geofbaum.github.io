@@ -1,7 +1,7 @@
 		var currentTime = new Date();
 		currentTime.setUTCMinutes(0, 0, 0);
 		var endDate = new Date(currentTime.getTime());
-		var hour = new Date(currentTime.getHours());
+		var hour = new Date(currentTime.getUTCHours());
 		window.alert(hour);
 		var startTime = new Date();
 		// Check the time and alert us to what Model run is likely showing.
