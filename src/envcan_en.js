@@ -10,16 +10,19 @@
 			window.alert(startTime, "6Z Model Run");
 			startTime.setUTCHours(6);
 			startTime.setUTCMinutes(0,0,0);
-			
 		} else if (hour > 18 && hour < 24) {
-			startTime.setUTCHours(12);
 			window.alert(startTime, "12Z Model Run");
+			startTime.setUTCHours(12);
+			startTime.setUTCMinutes(0,0,0);
 		} else if (hour < 6) {
-			startTime.setUTCHours(18);
 			window.alert(startTime, "18Z Model Run");
+			startTime.setUTCHours(18);
+			startTime.setUTCMinutes(0,0,0);
 		} else {
-			startTime.setUTCHours(0);
 			window.alert("0Z Model Run");
+			startTime.setUTCHours(0);
+			startTime.setUTCMinutes(0,0,0);
+			
 		}
 		L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true);
 	
