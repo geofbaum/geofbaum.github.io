@@ -120,9 +120,9 @@
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			wmsVersion: "1.3.0",
 			proxy: proxy,
-			updateTimeDimension: true,
-			updateTimeDimensionMode: "replace",
-			requestTimeFromCapabilities: true,
+			//updateTimeDimension: true,
+			//updateTimeDimensionMode: "replace",
+			//requestTimeFromCapabilities: true,
 			//markers: markers,
 			name: "Surface Temperature",
 			//units: "\xBA C",			
