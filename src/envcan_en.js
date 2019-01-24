@@ -32,7 +32,8 @@
 			timeDimension: true,
 			timeDimensionControl: true,
 			timeDimensionOptions: {
-				timeInterval: startTime.toISOString() + "/P1D",
+				timeInterval: "2019-01-24T06:00:00Z/2019-01-26T06:00:00Z",
+				//timeInterval: startTime.toISOString() + "/P1D",
 				period: "PT1H",
 				currentTime: startTime //.getTime(),
 			}, 
