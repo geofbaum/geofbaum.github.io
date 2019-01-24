@@ -8,6 +8,7 @@
 		// Check the time and alert us to what Model run is likely showing.
 		if (hour > 6 && hour < 18) {
 			startTime.setUTCHours(6);
+			startTime.setUTCMinutes(0,0,0);
 			window.alert(startTime, "6Z Model Run");
 		} else if (hour > 18 && hour < 24) {
 			startTime.setUTCHours(12);
@@ -117,7 +118,7 @@
 		}); */
 			
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
-			//wmsVersion: "1.3.0",
+			wmsVersion: "1.3.0",
 			proxy: proxy,
 			updateTimeDimension: true,
 			updateTimeDimensionMode: "replace",
