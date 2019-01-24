@@ -32,10 +32,10 @@
 			timeDimension: true,
 			timeDimensionControl: true,
 			timeDimensionOptions: {
-				timeInterval: "2019-01-24T06:00:00Z/2019-01-26T06:00:00Z",
+				timeInterval: "2019-01-24T06:00:00Z/2019-01-26T06:00:00Z/PT1H",
 				//timeInterval: startTime.toISOString() + "/P1D",
-				period: "PT1H",
-				currentTime: startTime //.getTime(),
+				//period: "PT1H",
+				//currentTime: startTime //.getTime(),
 			}, 
 			timeDimensionControlOptions: {
 				styleNS: "leaflet-control-timecontrol",
