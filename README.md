@@ -5,3 +5,9 @@ server.
 
 This example utilizes Leaflet, the Leaflet-Plugin Time Dimension, as well as data from Environment Canada (EC) and the National Oceanic
 and Atmospheric Administration (NOAA) via UCAR.
+
+
+<h3>Please Note as of the middle of 2018, the Environment Canada WMS server has changed how it responds to data requests and due to that a
+  lot of the features I was working with initially no longer work in their current form such as the Time Dimension parts used to get and 
+  display a model run worth of data and displaying it. It is my hope that I will be able to find a way around that but at the moment I do not
+  have as much free time to investigate how to do that. If you have any ideas please let me know!</h3>
