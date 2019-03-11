@@ -100,7 +100,7 @@ L.TimeDimension.Util = {
     parseTimeInterval: function(timeInterval) {
         var parts = timeInterval.split("/");
         if (parts.length != 2) {
-            throw "Incorrect ISO9601 TimeInterval: " + timeInterval;
+            throw "Incorrect ISO8601 TimeInterval: " + timeInterval;
         }
         var startTime = Date.parse(parts[0]);
         var endTime = null;
