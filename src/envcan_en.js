@@ -52,7 +52,7 @@
 		});
 		
 		var basemaps = {
-			/* Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}') */
+			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
 			OSM: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 		}; 
 
