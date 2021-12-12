@@ -104,7 +104,8 @@
 			proxy: proxy,
 			markers: markers,
 			name: "Surface Temperature",
-			updateTimeDimension: True
+			updateTimeDimension: True,
+			requestTimeFromCapabilities : True
 			//units: "\xBA C",			
 		});
 		
