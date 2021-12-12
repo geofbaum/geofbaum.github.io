@@ -139,7 +139,7 @@
 		// add Wind Legend
 		var legend2 = L.control({position: 'bottomright'});
 		legend2.onAdd = function(map) {
-			var src2 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.1.1%26REQUEST=GetLegendGraphic%26STYLE=WINDARROWKMH%26LAYER=RDPS.ETA_UU%26format=image/png"
+			var src2 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.3.0%26REQUEST=GetLegendGraphic%26STYLE=WINDARROWKMH%26LAYER=RDPS.ETA_UU%26format=image/png"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src2 + '" alt="legend">';
@@ -149,7 +149,7 @@
 		// add dewpoint Legend
 		var legend3 = L.control({position: 'bottomright'});
 		legend3.onAdd = function(map) {
-			var src3 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.1.1%26REQUEST=GetLegendGraphic%26STYLE=DEWPOINTDEP%26LAYER=RDPS.ETA_TD%26format=image/png"
+			var src3 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.3.0%26REQUEST=GetLegendGraphic%26STYLE=DEWPOINTDEP%26LAYER=RDPS.ETA_TD%26format=image/png"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src3 + '" alt="legend">';
@@ -159,7 +159,7 @@
 		// add Precip Legend
 		var legend4 = L.control({position: 'bottomright'});
 		legend4.onAdd = function(map) {
-			var src4 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.1.1%26REQUEST=GetLegendGraphic%26STYLE=PRECIPMM%26LAYER=RDPS.ETA_PR%26format=image/png"
+			var src4 = "http://geo.weather.gc.ca/geomet//?LANG=E%26SERVICE=WMS%26VERSION=1.3.0%26REQUEST=GetLegendGraphic%26STYLE=PRECIPMM%26LAYER=RDPS.ETA_PR%26format=image/png"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src4 + '" alt="legend">';
