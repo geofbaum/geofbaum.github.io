@@ -1,7 +1,7 @@
 		var currentTime = new Date();
 		currentTime.setUTCMinutes(0, 0, 0);
 		var endDate = new Date(currentTime.getTime());
-		/* L.TimeDimension.Util.addTimeDuration(endDate, "P2D", true); */
+		L.TimeDimension.Util.addTimeDuration(endDate, "P2D", true); 
 	
 		var map = L.map('map', {
 			center: [45.25, -73.6159],
