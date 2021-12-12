@@ -28,8 +28,8 @@
 		});
 		
 		var basemaps = {
-			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
-			OSM: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}') /*,
+			OSM: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')*/
 		}; 
 
 		
@@ -99,8 +99,8 @@
 			//enableNewMarkers: true
 		}); */
 			
-		var tdTemp = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
-			//wmsVersion: "1.1.1",
+		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
+			wmsVersion: '1.3.0',
 			proxy: proxy,
 			markers: markers,
 			name: "Surface Temperature",
@@ -110,17 +110,17 @@
 		});
 		
 		var tdDew = L.timeDimension.layer.wms(dewpointLayer, {
-			wmsVersion: "1.1.1",
+			wmsVersion: "1.3.0",
 			proxy: proxy,
 		});
 		
 		var tdWind = L.timeDimension.layer.wms(windLayer, {
-			wmsVersion: "1.1.1",
+			wmsVersion: "1.3.0",
 			proxy: proxy,
 		});
 		
 		var tdPrecip = L.timeDimension.layer.wms(precipLayer, {
-			wmsVersion: "1.1.1",
+			wmsVersion: "1.3.0",
 			proxy: proxy,
 		});
 		
