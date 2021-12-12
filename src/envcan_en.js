@@ -57,13 +57,13 @@
 
 		
 		var temperatureLayer = L.tileLayer.wms('https://geo.weather.gc.ca/geomet/?lang=E&service=WMS&version=1.3.0&request=GetCapabilities', {
-			layers: 'HRDPS.CONTINENTAL_TT',
+			layers: 'HRDPS.CONTINENTAL.PRES_TT.1015',
 			opacity: '0.75',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 
 		var windLayer = L.tileLayer.wms('https://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
-			layers: 'HRDPS.CONTINENTAL_UU',
+			layers: 'HRDPS.CONTINENTAL.PRES_UU.1015',
 			//opacity: '0.9',
 			transparent: true,
 			format: 'image/png',
