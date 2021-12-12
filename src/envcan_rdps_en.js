@@ -8,11 +8,11 @@
 			zoom: 9,
 			timeDimension: true,
 			timeDimensionControl: true,
-			timeDimensionOptions: {
+			/* timeDimensionOptions: {
 				timeInterval: currentTime.toISOString() + "/P2D",
 				period: "PT1H",
 				currentTime: currentTime.getTime(),
-			}, 
+			}, */
 			timeDimensionControlOptions: {
 				styleNS: "leaflet-control-timecontrol",
 				position: "bottomleft",
