@@ -35,40 +35,36 @@
 		
 		var temperatureLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
 			layers: 'RDPS.ETA_TT',
-			version: '1.3.0',
 			opacity: '0.5',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 
 		var windLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
 			layers: 'RDPS.ETA_UU',
-			version: '1.3.0',
 			//opacity: '0.9',
 			transparent: true,
-			format: 'image/png',
+			//format: 'image/png',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 			
 		var precipLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
 			layers: 'RDPS.ETA_PR',
-			version: '1.3.0',
 			opacity: '0.6',
-			transparent: true,
-			format: 'image/png'
+			transparent: true//,
+			//format: 'image/png'
 			});
 			
 		var dewpointLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
 			layers: 'RDPS.ETA_TD',
-			version: '1.3.0',
 			opacity: '0.75',
-			transparent: true,
-			format: 'image/png'
+			transparent: true//,
+			//format: 'image/png'
 			});
 			
 		var radarLayer = L.tileLayer.wms('http://geo.weather.gc.ca/geomet/?', {
 			layers: 'RADAR_RDBS',
-			transparent: true,
-			format: 'image/png'
+			transparent: true//,
+			//format: 'image/png'
 			});
 			
 		var markers = [{
