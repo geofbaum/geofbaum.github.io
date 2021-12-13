@@ -97,7 +97,7 @@
 			name: "Surface Temperature",
 			units: "\xBA C",
 			//enableNewMarkers: true
-		}); */
+		}); 
 			
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			wmsVersion: '1.3.0',
@@ -122,7 +122,7 @@
 		var tdPrecip = L.timeDimension.layer.wms(precipLayer, {
 			wmsVersion: "1.3.0",
 			proxy: proxy,
-		});
+		});*/
 		
 		
 		// add Temp Legend
