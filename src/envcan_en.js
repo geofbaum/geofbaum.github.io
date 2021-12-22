@@ -1,6 +1,6 @@
 		var currentTime = new Date();
 		currentTime.setUTCMinutes(0, 0, 0);
-		var endDate = new Date(currentTime.getTime());
+		/** var endDate = new Date(currentTime.getTime());
 		var hour = new Date();
 		hour = hour.getUTCHours();
 		window.alert(hour);
@@ -24,19 +24,19 @@
 			startTime.setUTCMinutes(0,0,0);
 			
 		}
-		L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true);
+		L.TimeDimension.Util.addTimeDuration(endDate, "P1D", true); **/
 	
 		var map = L.map('map', {
 			center: [45.25, -73.6159],
-			zoom: 9,
-			timeDimension: true,
-			timeDimensionControl: true,
+			zoom: 9 /**,
+			timeDimension: true ,
+			timeDimensionControl: true ,
 			timeDimensionOptions: {
 				timeInterval: "2019-01-24T06:00:00Z/2019-01-26T06:00:00Z/PT1H",
 				//timeInterval: startTime.toISOString() + "/P1D",
 				//period: "PT1H",
-				//currentTime: startTime //.getTime(),
-			}, 
+				//currentTime: startTime //.getTime(),**/
+			}/**, 
 			timeDimensionControlOptions: {
 				styleNS: "leaflet-control-timecontrol",
 				position: "bottomleft",
@@ -47,7 +47,7 @@
 					transitionTime: 250,
 				},
 				//timeZones: ['Local'],
-			},
+			}, **/
 			
 		});
 		
@@ -56,7 +56,7 @@
 			OSM: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 		}; 
 
-		
+		/**
 		var temperatureLayer = L.tileLayer.wms('https://geo.weather.gc.ca/geomet/?lang=E&service=WMS&version=1.3.0&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL.PRES_TT.1015',
 			opacity: '0.75',
@@ -91,7 +91,7 @@
 			layers: 'RADAR_RDBS',
 			transparent: true,
 			format: 'image/png'
-			});
+			}); **/
 			
 		/*var markers = [{
 			name: 'Mas',
@@ -194,11 +194,18 @@
 		legend1.addTo(map);
 		
 		var envcan = {
+			'Temperature': temperatureLayer,
+			'Dewpoint': dewpointLayer,
+			'Cumulative Precipitation (mm)': precipLayer,
+			'Windspeed Arrows in km/h': windLayer,
+		};
+		/**
+		var envcan = {
 			'Temperature': tdTemp,
 			'Dewpoint': tdDew,
 			'Cumulative Precipitation (mm)': tdPrecip,
 			'Windspeed Arrows in km/h': tdWind,
-		};
+		}; **/
 			
 		L.control.layers(basemaps, envcan).addTo(map);
 		

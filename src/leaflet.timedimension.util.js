@@ -56,13 +56,15 @@ L.TimeDimension.Util = {
         this.addTimeDuration(date, subDuration, utc);
     },
 
-    parseAndExplodeTimeRange: function(timeRange) {
+    parseAndExplodeTimeRange: function(timeRange, overwritePeriod) {
         var tr = timeRange.split('/');
         var startTime = new Date(Date.parse(tr[0]));
         var endTime = new Date(Date.parse(tr[1]));
-        var duration = tr.length > 2 ? tr[2] : "P1D";
-
-        return this.explodeTimeRange(startTime, endTime, duration);
+        var period = (tr.length > 2 && tr[2].length) ? tr[2] : "P1D";
+        if (overwritePeriod !== undefined && overwritePeriod !== null){
+            period = overwritePeriod;
+        }
+        return this.explodeTimeRange(startTime, endTime, period);
     },
 
     explodeTimeRange: function(startTime, endTime, ISODuration, validTimeRange) {
@@ -100,7 +102,7 @@ L.TimeDimension.Util = {
     parseTimeInterval: function(timeInterval) {
         var parts = timeInterval.split("/");
         if (parts.length != 2) {
-            throw "Incorrect ISO8601 TimeInterval: " + timeInterval;
+            throw "Incorrect ISO9601 TimeInterval: " + timeInterval;
         }
         var startTime = Date.parse(parts[0]);
         var endTime = null;
@@ -128,7 +130,7 @@ L.TimeDimension.Util = {
         return [startTime, endTime];
     },
 
-    parseTimesExpression: function(times) {
+    parseTimesExpression: function(times, overwritePeriod) {
         var result = [];
         if (!times) {
             return result;
@@ -140,7 +142,7 @@ L.TimeDimension.Util = {
             for (var i=0, l=timeRanges.length; i<l; i++){
                 timeRange = timeRanges[i];
                 if (timeRange.split("/").length == 3) {
-                    result = result.concat(this.parseAndExplodeTimeRange(timeRange));
+                    result = result.concat(this.parseAndExplodeTimeRange(timeRange, overwritePeriod));
                 } else {
                     timeValue = Date.parse(timeRange);
                     if (!isNaN(timeValue)) {
@@ -196,7 +198,9 @@ L.TimeDimension.Util = {
     },
 
     sort_and_deduplicate: function(arr) {
-        arr = arr.slice(0).sort();
+        arr = arr.slice(0).sort(function (a, b) {
+            return a - b;
+        });
         var result = [];
         var last = null;
         for (var i = 0, l = arr.length; i < l; i++) {
