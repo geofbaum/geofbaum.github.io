@@ -28,41 +28,40 @@
 	
 		var map = L.map('map', {
 			center: [45.25, -73.6159],
-			zoom: 9 /**,
+			zoom: 9,
 			timeDimension: true ,
 			timeDimensionControl: true ,
 			timeDimensionOptions: {
-				timeInterval: "2019-01-24T06:00:00Z/2019-01-26T06:00:00Z/PT1H",
-				//timeInterval: startTime.toISOString() + "/P1D",
-				//period: "PT1H",
-				//currentTime: startTime //.getTime(),**/
-			}/**, 
+				timeInterval: "PT3H/" + currentTime.toISOString(),
+				period: "PT1H",
+				currentTime: currentTime.getTime(),
+			}, 
 			timeDimensionControlOptions: {
-				styleNS: "leaflet-control-timecontrol",
-				position: "bottomleft",
+				//styleNS: "leaflet-control-timecontrol",
+				//position: "bottomleft",
 				autoPlay: false,
 				loopButton: true,
 				playerOptions: {
 					buffer: 10,
 					transitionTime: 250,
 				},
-				//timeZones: ['Local'],
-			}, **/
+				timeZones: ['Local'],
+			}, 
 			
 		});
 		
 		var basemaps = {
-			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
-			OSM: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+			Google: L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}')//,
+			//OSM: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 		}; 
 
-		/**
+		
 		var temperatureLayer = L.tileLayer.wms('https://geo.weather.gc.ca/geomet/?lang=E&service=WMS&version=1.3.0&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL.PRES_TT.1015',
 			opacity: '0.75',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
-
+/**
 		var windLayer = L.tileLayer.wms('https://geo.weather.gc.ca/geomet/?lang=E&service=WMS&request=GetCapabilities', {
 			layers: 'HRDPS.CONTINENTAL.PRES_UU.1015',
 			//opacity: '0.9',
@@ -112,7 +111,7 @@
 
 	    var proxy = 'proxy.php';
 		
-		/*var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
+		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
 			proxy: proxy,
 			updateTimeDimension: true,
 			updateTimeDimensionMode: "replace",
@@ -121,7 +120,7 @@
 			name: "Surface Temperature",
 			units: "\xBA C"//,
 			//enableNewMarkers: true
-		}); */
+		}); 
 			
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			wmsVersion: "1.3.0",
@@ -193,19 +192,19 @@
 		
 		legend1.addTo(map);
 		
-		var envcan = {
+		/**var envcan = {
 			'Temperature': temperatureLayer,
 			'Dewpoint': dewpointLayer,
 			'Cumulative Precipitation (mm)': precipLayer,
 			'Windspeed Arrows in km/h': windLayer,
 		};
-		/**
+		**/
 		var envcan = {
 			'Temperature': tdTemp,
 			'Dewpoint': tdDew,
 			'Cumulative Precipitation (mm)': tdPrecip,
 			'Windspeed Arrows in km/h': tdWind,
-		}; **/
+		};
 			
 		L.control.layers(basemaps, envcan).addTo(map);
 		
