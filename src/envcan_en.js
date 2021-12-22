@@ -56,9 +56,11 @@
 		}; 
 
 		
-		var temperatureLayer = L.tileLayer.wms('https://geo.weather.gc.ca/geomet/?lang=E&service=WMS&version=1.3.0&request=GetCapabilities', {
+		var temperatureLayer = L.tileLayer.wms('https://geo.weather.gc.ca/geomet/?', {
 			layers: 'HRDPS.CONTINENTAL.PRES_TT.1015',
-			opacity: '0.75',
+			format: 'image/jpeg',
+			//transparent: true,
+			//opacity: '0.75',
 			attribution: '<a href="http://dd.weatheroffice.gc.ca/doc/LICENCE_GENERAL.txt">Data Source: Environment and Climate Change Canada</a>'
 			});
 /**
@@ -109,8 +111,8 @@
 			position: [45.230818, -73.55349],
 		}];	*/
 
-	    var proxy = 'proxy.php';
-		
+	    //var proxy = 'proxy.php';
+		/**
 		var hrrrTemperatureTimeLayer = L.timeDimension.layer.wms.timeseries(temperatureLayer, {
 			proxy: proxy,
 			updateTimeDimension: true,
@@ -120,11 +122,11 @@
 			name: "Surface Temperature",
 			units: "\xBA C"//,
 			//enableNewMarkers: true
-		}); 
+		}); **/
 			
 		var tdTemp = L.timeDimension.layer.wms(temperatureLayer, {
 			wmsVersion: "1.3.0",
-			proxy: proxy,
+			//proxy: proxy,
 			//updateTimeDimension: true,
 			//updateTimeDimensionMode: "replace",
 			//requestTimeFromCapabilities: true,
@@ -206,10 +208,10 @@
 			'Windspeed Arrows in km/h': tdWind,
 		};
 			
-		L.control.layers(basemaps, envcan).addTo(map);
+		L.control.layers(envcan).addTo(map);
 		
 		envcan.Temperature.addTo(map);
-		basemaps.Google.addTo(map);
+		// basemaps.Google.addTo(map);
 
 		// Remove Legends
 		map.on('overlayremove', function (eventLayer) {
