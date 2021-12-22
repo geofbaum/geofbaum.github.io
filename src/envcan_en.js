@@ -152,7 +152,7 @@
 		// add Temp Legend
 		var legend1 = L.control({position: 'bottomright'});
 		legend1.onAdd = function(map) {
-			var src1 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=HRDPS.CONTINENTAL_TT&format=image/png&STYLE=TEMPSUMMER"
+			var src1 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.3.0&layer=HRDPS.CONTINENTAL_TT&format=image/png&STYLE=TEMPSUMMER"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src1 + '" alt="legend">';
@@ -163,7 +163,7 @@
 		// add Wind Legend
 		var legend2 = L.control({position: 'bottomright'});
 		legend2.onAdd = function(map) {
-			var src2 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=HRDPS.CONTINENTAL_UU&format=image/png&STYLE=WINDARROWKMH"
+			var src2 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.3.0&layer=HRDPS.CONTINENTAL_UU&format=image/png&STYLE=WINDARROWKMH"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src2 + '" alt="legend">';
@@ -173,7 +173,7 @@
 		// add dewpoint Legend
 		var legend3 = L.control({position: 'bottomright'});
 		legend3.onAdd = function(map) {
-			var src3 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=HRDPS.CONTINENTAL_TD&format=image/png&STYLE=DEWPOINT"
+			var src3 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.3.0&layer=HRDPS.CONTINENTAL_TD&format=image/png&STYLE=DEWPOINT"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src3 + '" alt="legend">';
@@ -183,7 +183,7 @@
 		// add Precip Legend
 		var legend4 = L.control({position: 'bottomright'});
 		legend4.onAdd = function(map) {
-			var src4 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=HRDPS.CONTINENTAL_PR&format=image/png&STYLE=PRECIPMM"
+			var src4 = "http://geo.weather.gc.ca/geomet?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.3.0&layer=HRDPS.CONTINENTAL_PR&format=image/png&STYLE=PRECIPMM"
 			var div = L.DomUtil.create('div', 'info legend');
 			div.innerHTML +=
 				'<img src="' + src4 + '" alt="legend">';
