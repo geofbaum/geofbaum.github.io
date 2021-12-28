@@ -1,13 +1,16 @@
-title: "My Blogs Name"
+title: "Plasticities"
 # Name of your site (displayed in the header)
-name: Geof Baum
+author: Geof Baum
+url: https://geofbaum.github.io/blog
 
 # Short bio or description (displayed in the header)
-description: Satellite Operations Engineer, Meteorologist and Geospatial Analyst and part time Programmer
+description: This isn't your song, this isn't your music... Satellite Operations Engineer, Meteorologist and Geospatial Analyst and part time Programmer
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars.githubusercontent.com/u/9683836?s=400&u=31c48a7601fe54ef33f59d6ce301c5b43fe89f19&v=4
 
+timezone: UTC
+future: false
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
@@ -33,21 +36,46 @@ theme: "al-folio"
 
 rss: rss
 
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
+show_excerpts: false
+
+# Used by simple links page
+social-links:
+  LinkedIn:     https://linkedin.com/in/geoffrey-baum
+  Github:       https://github.com/geofbaum
+  Twitter:      https://twitter.com/FsharpAsharpinf
+  Reddit:       https://reddit.com/user/Competitive_Mix4835
+  Website:      https://geofbaum.github.io
+
+# plugin: jekyll-titles-from-headings
+titles_from_headings:
+    strip_title: true
     
+collections:
+    personal: # collection for personal blog posts
+      output: true
+
+header_pages:
+  - resume.html
+  - archive.html
+  - books.md
+  - bookmarks.md
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-titles_from_headings:
-  strip_title: true
-  collections: true
+code_block_max_height: 500px
+
+home_post_limit: 5
 
 defaults:
   - scope:
       path: ""
-      type: post
+      type: posts
     values:
       tags: Other
+
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+    
