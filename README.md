@@ -11,3 +11,7 @@ and Atmospheric Administration (NOAA) via UCAR.
   lot of the features I was working with initially no longer work in their current form such as the Time Dimension parts used to get and 
   display a model run worth of data and displaying it. It is my hope that I will be able to find a way around that but at the moment I do not
   have as much free time to investigate how to do that. If you have any ideas please let me know!</h3>
+
+Currently under development for a new release where I'll be moving from Leaflet to OpenLayers implementation for the weather data retrieval
+and creating a static offshoot site to host my resume, other work, blog utilizing Jekyll. Hoping to have the addition and transition to 
+OpenLayers done by the end of January 2022.
