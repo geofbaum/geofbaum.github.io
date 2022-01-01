@@ -13,5 +13,5 @@ and Atmospheric Administration (NOAA) via UCAR.
   have as much free time to investigate how to do that. If you have any ideas please let me know!</h3>
 
 Currently under development for a new release where I'll be moving from Leaflet to OpenLayers implementation for the weather data retrieval
-and creating a static offshoot site to host my resume, other work, blog utilizing Jekyll. Hoping to have the addition and transition to 
-OpenLayers done by the end of January 2022.
+and creating a static offshoot site to host my resume, other work, blog utilizing Jekyll. Hoping to have the addition and transition to OpenLayers
+done by the end of January 2022.
